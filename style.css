@@ -1,180 +1,206 @@
-/* =====================
-   RESET & BASE
-===================== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 html {
   height: 100%;
 }
 
-/* =====================
-   FIXED BACKGROUND LAYER
-   (THIS SOLVES WHITE GAP)
-===================== */
+/* BACKGROUND */
 html::before {
   content: "";
   position: fixed;
   inset: 0;
-
   background-image: url("https://i.postimg.cc/QN5L6bx3/vivegam-background-img.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   z-index: -1;
 }
 
-/* =====================
-   BODY
-===================== */
+/* BODY */
 body {
   min-height: 100svh;
-
   display: flex;
-  justify-content: center;   /* horizontal center only */
-
-  padding: 40px 0;
-  overflow-x: hidden;
-
-  background: transparent;  /* IMPORTANT */
+  justify-content: center;
+  padding: 50px 0;
+  font-family: 'Poppins', sans-serif;
+  background: transparent;
 }
 
-/* =====================
-   CONTAINER (GLASS)
-===================== */
+/* CONTAINER */
 .container {
   width: 100%;
   max-width: 420px;
-  padding: 28px 20px;
-
+  padding: 34px 22px;
   text-align: center;
 
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    180deg,
+    rgba(20,20,40,0.75),
+    rgba(10,10,20,0.75)
+  );
 
-  border-radius: 22px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  backdrop-filter: blur(18px);
+  border-radius: 26px;
+  border: 1px solid rgba(120,160,255,0.25);
+
+  box-shadow:
+    0 0 40px rgba(120,160,255,0.25),
+    0 0 80px rgba(120,160,255,0.15);
+
+  animation: containerIn 1s ease forwards;
+  position: relative;
 }
 
-/* =====================
-   PROFILE IMAGE
-===================== */
+/* NEON AURA */
+.container::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(120,160,255,0.35),
+    transparent
+  );
+  filter: blur(20px);
+  z-index: -1;
+  animation: neonPulse 6s ease-in-out infinite;
+}
+
+/* PROFILE */
 .profile-pic {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  border: 3px solid rgba(255,255,255,0.8);
   object-fit: cover;
   margin-bottom: 14px;
 
-  animation: float 4s ease-in-out infinite;
+  border: 2px solid rgba(120,160,255,0.8);
+  box-shadow:
+    0 0 18px rgba(120,160,255,0.6),
+    0 0 36px rgba(120,160,255,0.4);
 }
 
-/* =====================
-   TEXT
-===================== */
+/* FLOATING TEXT */
+.float-title {
+  animation: floatText 4s ease-in-out infinite;
+}
+
+.float-sub {
+  animation: floatText 5.5s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+/* TEXT */
 h1 {
+  font-family: 'Orbitron', sans-serif;
   color: #fff;
   font-size: 22px;
-  margin-bottom: 4px;
+  letter-spacing: 1px;
 }
 
 .bio {
-  color: #ddd;
-  font-size: 14px;
-  margin-bottom: 22px;
-
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
+  color: #cfd3ff;
+  font-size: 13px;
+  margin-bottom: 26px;
 }
 
-/* =====================
-   LINKS
-===================== */
+/* BUTTONS */
 .links a {
   display: block;
-  margin: 12px 0;
+  margin: 14px 0;
   padding: 15px;
 
-  background: linear-gradient(135deg, #ffffff, #f1f1f1);
-  color: #000;
-  text-decoration: none;
-  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 
-  border-radius: 32px;
+  color: #fff;
+  text-decoration: none;
+
+  background: rgba(255,255,255,0.06);
+  border-radius: 30px;
+  border: 1px solid rgba(140,160,255,0.4);
+  backdrop-filter: blur(10px);
+
   position: relative;
   overflow: hidden;
 
-  transform: translateY(20px);
   opacity: 0;
+  transform: translateY(20px);
   animation: linkIn 0.6s ease forwards;
 }
 
 /* STAGGER */
-.links a:nth-child(1)  { animation-delay: 0.2s; }
-.links a:nth-child(2)  { animation-delay: 0.3s; }
-.links a:nth-child(3)  { animation-delay: 0.4s; }
-.links a:nth-child(4)  { animation-delay: 0.5s; }
-.links a:nth-child(5)  { animation-delay: 0.6s; }
-.links a:nth-child(6)  { animation-delay: 0.7s; }
-.links a:nth-child(7)  { animation-delay: 0.8s; }
-.links a:nth-child(8)  { animation-delay: 0.9s; }
-.links a:nth-child(9)  { animation-delay: 1s; }
-.links a:nth-child(10) { animation-delay: 1.1s; }
+.links a:nth-child(1) { animation-delay: .2s; }
+.links a:nth-child(2) { animation-delay: .3s; }
+.links a:nth-child(3) { animation-delay: .4s; }
+.links a:nth-child(4) { animation-delay: .5s; }
+.links a:nth-child(5) { animation-delay: .6s; }
+.links a:nth-child(6) { animation-delay: .7s; }
+.links a:nth-child(7) { animation-delay: .8s; }
+.links a:nth-child(8) { animation-delay: .9s; }
+.links a:nth-child(9) { animation-delay: 1s; }
+.links a:nth-child(10){ animation-delay: 1.1s; }
 
-/* HOVER & PRESS */
+/* NEON SWEEP */
+.links a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(120,160,255,0.6),
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform .6s ease;
+}
+
+.links a:hover::before {
+  transform: translateX(120%);
+}
+
 .links a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  transform: scale(1.04);
+  box-shadow:
+    0 0 20px rgba(120,160,255,0.7),
+    0 0 40px rgba(120,160,255,0.4);
 }
 
 .links a:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
-/* =====================
-   SOCIAL IMAGE
-===================== */
+/* SOCIAL */
 .socials img {
   max-width: 100%;
-  height: auto;
-  margin-top: 22px;
-
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 1.2s;
+  margin-top: 26px;
+  filter: drop-shadow(0 0 14px rgba(255,200,80,0.7));
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* FOOTER */
 footer {
   margin-top: 18px;
-  font-size: 12px;
-  color: #bbb;
-
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 1.4s;
+  font-size: 11px;
+  color: #aaa;
 }
 
-/* =====================
-   MOBILE BACKGROUND
-===================== */
+footer span {
+  color: #ff5252;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
-  html::before {
-    background-image: url("https://i.postimg.cc/QN5L6bx3/vivegam-background-img.jpg");
-  }
-
-  body {
-    padding: 0;
-  }
-
+  body { padding: 0; }
   .container {
     min-height: 100svh;
     border-radius: 0;
@@ -182,25 +208,22 @@ footer {
   }
 }
 
-/* =====================
-   ANIMATIONS
-===================== */
-@keyframes fadeIn {
-  to { opacity: 1; }
+/* ANIMATIONS */
+@keyframes containerIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes linkIn {
-  to { transform: translateY(0); opacity: 1; }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+@keyframes neonPulse {
+  0%,100% { opacity: .4; }
+  50% { opacity: .9; }
 }
 
-@keyframes ripple {
-  to {
-    transform: scale(2.5);
-    opacity: 0;
-  }
+@keyframes floatText {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
