@@ -1,0 +1,186 @@
+/* =====================
+   RESET & BASE
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100svh;
+
+  background-image: url("https://i.postimg.cc/desktop-bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;        /* CENTER HORIZONTALLY ONLY */
+  
+  padding: 40px 0;                /* PREVENT TOP CLIPPING */
+  overflow-x: hidden;             /* NO SIDE SCROLL */
+}
+
+/* =====================
+   CONTAINER (GLASS)
+===================== */
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 20px;
+
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+
+  border-radius: 22px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* =====================
+   PROFILE IMAGE
+===================== */
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.8);
+  object-fit: cover;
+  margin-bottom: 14px;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+/* =====================
+   TEXT
+===================== */
+h1 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.bio {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 22px;
+
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* =====================
+   LINKS
+===================== */
+.links a {
+  display: block;
+  margin: 12px 0;
+  padding: 15px;
+
+  background: linear-gradient(135deg, #ffffff, #f1f1f1);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+
+  transform: translateY(20px);
+  opacity: 0;
+  animation: linkIn 0.6s ease forwards;
+}
+
+/* STAGGER */
+.links a:nth-child(1)  { animation-delay: 0.2s; }
+.links a:nth-child(2)  { animation-delay: 0.3s; }
+.links a:nth-child(3)  { animation-delay: 0.4s; }
+.links a:nth-child(4)  { animation-delay: 0.5s; }
+.links a:nth-child(5)  { animation-delay: 0.6s; }
+.links a:nth-child(6)  { animation-delay: 0.7s; }
+.links a:nth-child(7)  { animation-delay: 0.8s; }
+.links a:nth-child(8)  { animation-delay: 0.9s; }
+.links a:nth-child(9)  { animation-delay: 1s; }
+.links a:nth-child(10) { animation-delay: 1.1s; }
+
+/* HOVER & PRESS */
+.links a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.links a:active {
+  transform: scale(0.97);
+}
+
+/* =====================
+   SOCIAL IMAGE
+===================== */
+.socials img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 22px;
+
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.2s;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #bbb;
+
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.4s;
+}
+
+/* =====================
+   MOBILE FIX
+===================== */
+@media (max-width: 768px) {
+  body {
+    background-image: url("https://i.postimg.cc/mobile-bg-image.jpg");
+    padding: 0;
+  }
+
+  .container {
+    min-height: 100svh;
+    border-radius: 0;
+    padding-top: 40px;
+  }
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes linkIn {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
