@@ -12,19 +12,36 @@ html {
   height: 100%;
 }
 
-body {
-  min-height: 100svh;
+/* =====================
+   FIXED BACKGROUND LAYER
+   (THIS SOLVES WHITE GAP)
+===================== */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
 
-  background-image: url("https://i.postimg.cc/desktop-bg-image.jpg");
+  background-image: url("https://i.postimg.cc/QN5L6bx3/vivegam-background-img.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
+  z-index: -1;
+}
+
+/* =====================
+   BODY
+===================== */
+body {
+  min-height: 100svh;
+
   display: flex;
-  justify-content: center;        /* CENTER HORIZONTALLY ONLY */
-  
-  padding: 40px 0;                /* PREVENT TOP CLIPPING */
-  overflow-x: hidden;             /* NO SIDE SCROLL */
+  justify-content: center;   /* horizontal center only */
+
+  padding: 40px 0;
+  overflow-x: hidden;
+
+  background: transparent;  /* IMPORTANT */
 }
 
 /* =====================
@@ -147,11 +164,14 @@ footer {
 }
 
 /* =====================
-   MOBILE FIX
+   MOBILE BACKGROUND
 ===================== */
 @media (max-width: 768px) {
-  body {
+  html::before {
     background-image: url("https://i.postimg.cc/QN5L6bx3/vivegam-background-img.jpg");
+  }
+
+  body {
     padding: 0;
   }
 
