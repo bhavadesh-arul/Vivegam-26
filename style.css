@@ -1,11 +1,15 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BACKGROUND */
+/* =========================
+   BACKGROUND (FIXED)
+========================= */
 html::before {
   content: "";
   position: fixed;
@@ -13,19 +17,25 @@ html::before {
   background-image: url("https://i.postimg.cc/QN5L6bx3/vivegam-background-img.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   z-index: -1;
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 body {
   min-height: 100svh;
   display: flex;
   justify-content: center;
   padding: 50px 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* CONTAINER */
+/* =========================
+   CONTAINER
+========================= */
 .container {
   width: 100%;
   max-width: 420px;
@@ -46,11 +56,13 @@ body {
     0 0 40px rgba(120,160,255,0.25),
     0 0 80px rgba(120,160,255,0.15);
 
-  animation: containerIn 1s ease forwards;
   position: relative;
+  animation: containerIn 1s ease forwards;
 }
 
-/* NEON AURA */
+/* =========================
+   NEON AURA
+========================= */
 .container::after {
   content: "";
   position: absolute;
@@ -59,27 +71,49 @@ body {
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(120,160,255,0.4),
+    rgba(120,160,255,0.45),
     transparent
   );
-  filter: blur(20px);
+  filter: blur(22px);
   z-index: -1;
   animation: neonPulse 6s ease-in-out infinite;
 }
 
-/* PROFILE */
-.profile-pic {
-  width: 110px;
-  height: 110px;
+/* =========================
+   PROFILE NEON RING (360°)
+========================= */
+.profile-ring {
+  width: 126px;
+  height: 126px;
+  margin: 0 auto 14px;
   border-radius: 50%;
-  margin-bottom: 14px;
-  border: 2px solid rgba(120,160,255,0.8);
-  box-shadow:
-    0 0 18px rgba(120,160,255,0.6),
-    0 0 36px rgba(120,160,255,0.4);
+  padding: 4px;
+
+  background: conic-gradient(
+    #ffe600,
+    #00f6ff,
+    #ff4dd2,
+    #7cff00,
+    #ffe600
+  );
+
+  animation: spinRing 6s linear infinite;
+  filter:
+    drop-shadow(0 0 18px rgba(120,160,255,0.7))
+    drop-shadow(0 0 30px rgba(120,160,255,0.4));
 }
 
-/* FLOATING TEXT */
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #000;
+}
+
+/* =========================
+   FLOATING TEXT
+========================= */
 .float-title {
   animation: floatText 4s ease-in-out infinite;
 }
@@ -88,21 +122,55 @@ body {
   animation: floatText 5.5s ease-in-out infinite;
 }
 
-/* TEXT */
+/* =========================
+   TEXT
+========================= */
 h1 {
   font-family: 'Orbitron', sans-serif;
-  color: #fff;
   font-size: 22px;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 .bio {
   color: #cfd3ff;
   font-size: 13px;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
-/* DAY SECTION */
+/* =========================
+   TOP PDF LINKS
+========================= */
+.top-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.pdf-link {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  padding: 10px 18px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(140,160,255,0.4);
+
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.pdf-link:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 22px currentColor;
+}
+
+/* =========================
+   DAY SECTION
+========================= */
 .day-section {
   margin-bottom: 34px;
 }
@@ -115,7 +183,9 @@ h1 {
   text-decoration: underline;
 }
 
-/* COLOR CYCLING DAY TITLES */
+/* =========================
+   NEON COLOR CYCLE
+========================= */
 .neon-cycle {
   animation: neonColor 4s linear infinite;
 }
@@ -124,7 +194,9 @@ h1 {
   animation-delay: 2s;
 }
 
-/* BUTTONS */
+/* =========================
+   EVENT BUTTONS
+========================= */
 .links a {
   display: block;
   margin: 12px 0;
@@ -132,8 +204,8 @@ h1 {
 
   font-family: 'Orbitron', sans-serif;
   font-size: 13px;
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
 
   color: #fff;
   text-decoration: none;
@@ -148,9 +220,23 @@ h1 {
   opacity: 0;
   transform: translateY(20px);
   animation: linkIn .6s ease forwards;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    filter .35s ease;
 }
 
-/* NEON SWEEP */
+/* STAGGER */
+.links a:nth-child(1) { animation-delay: .2s; }
+.links a:nth-child(2) { animation-delay: .3s; }
+.links a:nth-child(3) { animation-delay: .4s; }
+.links a:nth-child(4) { animation-delay: .5s; }
+.links a:nth-child(5) { animation-delay: .6s; }
+
+/* =========================
+   NEON SWEEP
+========================= */
 .links a::before {
   content: "";
   position: absolute;
@@ -169,25 +255,41 @@ h1 {
   transform: translateX(120%);
 }
 
-.links a:hover {
-  transform: scale(1.04);
+/* =========================
+   FOCUS ZOOM (PRO)
+========================= */
+.links:hover a {
+  transform: scale(0.96);
+  filter: brightness(0.85);
+}
+
+.links a:hover,
+.links a:focus-visible {
+  transform: scale(1.06) !important;
+  filter: brightness(1.1);
   box-shadow:
     0 0 20px rgba(120,160,255,0.7),
     0 0 40px rgba(120,160,255,0.4);
+  z-index: 2;
 }
 
 .links a:active {
-  transform: scale(0.96);
+  transform: scale(1.05) !important;
+  filter: brightness(1.15);
 }
 
-/* SOCIAL */
+/* =========================
+   SOCIAL
+========================= */
 .socials img {
   max-width: 100%;
   margin-top: 26px;
   filter: drop-shadow(0 0 14px rgba(255,200,80,0.7));
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 footer {
   margin-top: 18px;
   font-size: 11px;
@@ -198,14 +300,25 @@ footer span {
   color: red;
 }
 
-/* ANIMATIONS */
+/* =========================
+   ANIMATIONS
+========================= */
 @keyframes containerIn {
-  from { opacity: 0; transform: translateY(40px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes linkIn {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes floatText {
@@ -218,7 +331,10 @@ footer span {
   50% { opacity: .9; }
 }
 
-/* DAY TITLE COLOR LOOP */
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes neonColor {
   0%   { color: #ffe600; text-shadow: 0 0 10px #ffe600; }
   25%  { color: #00f6ff; text-shadow: 0 0 10px #00f6ff; }
