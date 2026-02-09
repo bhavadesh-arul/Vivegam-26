@@ -1,4 +1,13 @@
 // ===============================
+// INTRO LOGO CLEANUP
+// ===============================
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const intro = document.getElementById("logo-intro");
+    if (intro) intro.remove();
+  }, 4500);
+});
+// ===============================
 // VIVEGAM INTERACTIONS (PRO)
 // ===============================
 
