@@ -364,6 +364,11 @@ footer span {
   opacity: 0;
   filter: drop-shadow(0 0 0 transparent);
 }
+/* Make second intro logo bigger (responsive) */
+#logo-intro .logo-2 {
+  width: min(250px, 55vw);
+}
+
 
 /* First logo: scale + fade */
 .logo-1 {
