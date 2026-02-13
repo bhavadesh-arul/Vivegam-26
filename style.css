@@ -480,3 +480,46 @@ footer span {
   color: #7cff00;
   font-weight: 500;
 }
+/* =========================
+   ANIMATED FOOTER
+========================= */
+.animated-footer {
+  margin-top: 40px;
+  font-size: 12px;
+  text-align: center;
+  animation: footerFloat 4s ease-in-out infinite;
+}
+
+/* Animated Name */
+.creator-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  animation: creatorColor 6s linear infinite, creatorGlow 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.creator-name:hover {
+  transform: scale(1.15);
+}
+
+/* Floating Animation */
+@keyframes footerFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Color Cycle */
+@keyframes creatorColor {
+  0%   { color: #ffe600; }
+  25%  { color: #00f6ff; }
+  50%  { color: #ff4dd2; }
+  75%  { color: #7cff00; }
+  100% { color: #ffe600; }
+}
+
+/* Glow Pulse */
+@keyframes creatorGlow {
+  0%,100% { text-shadow: 0 0 6px currentColor; }
+  50% { text-shadow: 0 0 14px currentColor, 0 0 25px currentColor; }
+}
