@@ -474,3 +474,9 @@ footer span {
   color: #fff;
   margin-top: 6px;
 }
+.coordinator {
+  font-size: 11px;
+  margin-top: 6px;
+  color: #7cff00;
+  font-weight: 500;
+}
