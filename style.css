@@ -414,3 +414,63 @@ footer span {
     visibility: hidden;
   }
 }
+
+/* =========================
+   SCHEDULE SECTION
+========================= */
+.schedule-section {
+  margin-top: 50px;
+  text-align: left;
+}
+
+.schedule-main-title {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 30px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.schedule-day {
+  margin-bottom: 40px;
+}
+
+.schedule-day-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.schedule-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(140,160,255,0.3);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+.schedule-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(120,160,255,0.5);
+}
+
+.schedule-card p {
+  font-size: 12px;
+  color: #cfd3ff;
+  margin-bottom: 4px;
+}
+
+.schedule-card span {
+  color: #fff;
+  font-weight: 500;
+}
+
+.schedule-card h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  color: #fff;
+  margin-top: 6px;
+}
